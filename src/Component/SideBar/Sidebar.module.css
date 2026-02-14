@@ -1,0 +1,7 @@
+.sideBar{
+    flex: 0.2;
+    background-color: #0b0b5a;
+    color: white;
+    height: 100vh;
+    flex-shrink: 0;
+}
