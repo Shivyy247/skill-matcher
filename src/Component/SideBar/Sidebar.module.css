@@ -2,7 +2,7 @@
     flex: 0.2;
     background-color: #0b0b5a;
     color: white;
-    height: 100vh;
+    height: 200vh;
     flex-shrink: 0;
 }
 
@@ -12,6 +12,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 40px;
 }
 
 .sideBarTopContent{
@@ -31,4 +32,8 @@
     cursor: pointer;
     color: white;
     text-decoration: dashed;
+}
+
+.selectedOption{
+    background-color: rgb(72,72,222);
 }
