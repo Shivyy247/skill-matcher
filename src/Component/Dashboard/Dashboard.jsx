@@ -1,5 +1,7 @@
 import React from 'react'
 import styles from "./Dashboard.module.css";
+
+
 const Dashboard = () => {
   return (
     <div className={styles.Dashboard}>
@@ -12,6 +14,12 @@ const Dashboard = () => {
             Resume Match Score
           </div>
         </div>
+
+        <div className={styles.alertInfo}>
+          <div>Important Instructions:</div>
+        </div>
+
+
       </div>
     </div>
   );
