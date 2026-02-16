@@ -46,3 +46,111 @@
     font-size: 16px;
     background-color: rgb(72,72,222);
 }
+
+.dashboardInstruction{
+    margin-left: 40px;
+}
+
+.DashboardUploadResume{
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.DashboardResumeBlock{
+    width: 65%;
+    background-color: rgb(72,72,222);
+    border-radius: 30px;
+    padding: 15px 30px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    font-size: 22px;  
+}
+
+.DashboardInputField{
+    display: flex;
+    align-items: center;
+}
+
+.analyzeAIBtn{
+    font-size: 18px;
+    cursor: pointer;
+    padding: 20px 40px;
+    color: rgb(84, 219, 219);
+    font-weight: 700;
+    background: linear-gradient(90deg, #1f1a5b, rgb(35, 35, 174));
+    border-radius: 30px;
+    border: 3px solid black;
+}
+
+input{
+    display: none;
+}
+
+.jobDesc{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    box-sizing: border-box;
+}
+
+.textArea{
+    outline: none;
+    border-radius: 20px;
+    border: 2px solid rgb(35, 35, 174);
+    padding: 10px 20px;
+    box-sizing: border-box;
+    width: 65%;
+    resize: none;
+    background-color: rgb(72,72,222);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.AnalyzeBtn{
+    width: 150px;
+    height: 150px;
+    border: 3px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    background: linear-gradient(90deg, #221f3f, rgb(35, 35, 174));
+    font-size: 22px;
+    color: rgb(84, 219, 219);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.DashboardRight{
+    width: 25%;
+    height: fit-content;
+    box-sizing: border-box;
+    background-color: #0a045e;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.DashboardRightTopCard{
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.DashboardRightTopCard{
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.profileImg{
+    width: 95px;
+    height: 95px;
+    border-radius: 100%;
+    margin: 40px 20px;
+}

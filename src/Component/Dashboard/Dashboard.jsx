@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 import styles from "./Dashboard.module.css";
-
+import BarChartIcon from "@mui/icons-material/BarChart";
 
 const Dashboard = () => {
   return (
@@ -17,12 +17,65 @@ const Dashboard = () => {
 
         <div className={styles.alertInfo}>
           <div>Important Instructions:</div>
+          <div className={styles.dashboardInstruction}>
+            <div>
+              Please paste the complete job description in the "Job Description"
+              field before submitting.
+            </div>
+            <div>Only PDF format (.pdf) resumes are accepted.</div>
+          </div>
         </div>
 
+        <div className={styles.DashboardUploadResume}>
+          <div className={styles.DashboardResumeBlock}>Upload Your Resume</div>
+          <div className={styles.DashboardInputField}>
+            <label htmlFor="inputField" className={styles.analyzeAIBtn}>
+              Upload Resume
+            </label>
+            <input type="file" accept=".pdf" id="inputField" />
+          </div>
+        </div>
 
+        <div className={styles.jobDesc}>
+          <textarea
+            className={styles.textArea}
+            placeholder="Paste your Job Description"
+            rows={10}
+            cols={50}
+          />
+          <div className={styles.AnalyzeBtn}>Analyze</div>
+        </div>
+      </div>
+
+      <div className={styles.DashboardRight}>
+        <div className={styles.DashboardRightTopCard}>
+          <div>Analyze With AI</div>
+          <img
+            className={styles.profileImg}
+            src="https://i.pinimg.com/originals/bc/05/29/bc05295deed15211fc8ac34dc966dab5.jpg"
+            alt="ladybug"
+          />
+          <h2>Shivyy</h2>
+        </div>
+
+        <div className={styles.DashboardRightTopCard}>
+          <div>Result</div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: 20,
+            }}
+          >
+            <h1>75%</h1>
+            <BarChartIcon sx={{ fontSize: 42 }} />
+          </div>
+          <h2>Shivyy</h2>
+        </div>
       </div>
     </div>
   );
-}
+};
 
-export default Dashboard
+export default Dashboard;
