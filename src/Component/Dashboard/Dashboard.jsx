@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./Dashboard.module.css";
 import BarChartIcon from "@mui/icons-material/BarChart";
+import Skeleton from "@mui/material/Skeleton";
+
 
 const Dashboard = () => {
   return (
@@ -58,7 +60,7 @@ const Dashboard = () => {
           <h2>Shivyy</h2>
         </div>
 
-        <div className={styles.DashboardRightTopCard}>
+        {/* <div className={styles.DashboardRightTopCard}>
           <div>Result</div>
           <div
             style={{
@@ -79,7 +81,9 @@ const Dashboard = () => {
               repudiandae minus rem at?
             </p>
           </div>
-        </div>
+        </div> */}
+
+        <Skeleton variant="rectangural" sx={{borderRadius: "20px" }} width={280} height={280} />
       </div>
     </div>
   );
