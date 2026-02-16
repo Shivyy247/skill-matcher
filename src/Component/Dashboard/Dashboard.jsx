@@ -71,7 +71,14 @@ const Dashboard = () => {
             <h1>75%</h1>
             <BarChartIcon sx={{ fontSize: 42 }} />
           </div>
-          <h2>Shivyy</h2>
+          <div className={styles.feedback}>
+            <h2>feedback</h2>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim
+              officia eius, voluptatum veritatis assumenda impedit alias
+              repudiandae minus rem at?
+            </p>
+          </div>
         </div>
       </div>
     </div>
