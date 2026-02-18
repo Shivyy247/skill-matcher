@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./History.module.css";
 import Skeleton from "@mui/material/Skeleton";
-import WithAuthHOC from "../../utils/HOC/withAuthHOC";
+import WithAuthHOC from "../../utils/withAuthHOC";
 
 
 const History = () => {

@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Dashboard.module.css";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import Skeleton from "@mui/material/Skeleton";
-import WithAuthHOC from "../../utils/HOC/withAuthHOC";
+import WithAuthHOC from "../../utils/withAuthHOC";
 
 const Dashboard = () => {
   return (
