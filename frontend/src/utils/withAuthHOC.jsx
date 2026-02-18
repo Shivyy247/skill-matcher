@@ -5,12 +5,11 @@ import { AuthContext } from "./HOC/AuthContext"
 
 
 const WithAuthHOC = (WrappedComponent) => {
-
-    const { setLogin } = useContext(AuthContext)
     
     return (props) => {
 
-        const navigate = useNavigate()
+        const navigate = useNavigate();
+        const { setLogin } = useContext(AuthContext);
 
         useEffect(() => {
 
