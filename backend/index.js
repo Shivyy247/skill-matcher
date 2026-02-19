@@ -1,16 +1,31 @@
-const express = require('express')
+const express = require("express");
 
-const app = express()
-const PORT = 4000
+const app = express();
+const PORT = 4000;
 
-require('./conn')
+app.use(express.json()); // ✅ ADD THIS LINE
 
-app.get('/', (req, res) => (
-    res.send({
-        message:"Hi Welcome to our backend"
-    })
-))
+require("./conn");
+
+const UserRoutes = require("./Routes/user");
+
+app.use("/api/user", UserRoutes);
 
 app.listen(PORT, () => {
-    console.log("backend is running on port",PORT)
-})
+  console.log("backend is running on port", PORT);
+});
+
+// const express = require('express')
+
+// const app = express()
+// const PORT = 4000
+
+// require('./conn')
+
+// const UserRoutes = require('./Routes/user')
+
+// app.use('/api/user',UserRoutes)
+
+// app.listen(PORT, () => {
+//     console.log("backend is running on port",PORT)
+// })
