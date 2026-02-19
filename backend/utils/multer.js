@@ -14,4 +14,4 @@ const fileFilter = (req, file, cb) => {
   else cb(new Error("Only PDF allowed!"), false);
 };
 
-export default upload = multer({ storage, fileFilter });
+exports.upload = multer({ storage, fileFilter });
