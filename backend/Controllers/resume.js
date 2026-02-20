@@ -5,7 +5,7 @@ const { CohereClient } = require("cohere-ai");
 
 // ⚠️ Move this to .env later
 const cohere = new CohereClient({
-  token: "MhVnPxX4bqLUvM7TVAeNR3PMI9XJLwNMa068Vpry",
+  token: " api keys",
 });
 
 exports.addResume = async (req, res) => {
