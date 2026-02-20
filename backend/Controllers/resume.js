@@ -42,12 +42,27 @@ Reason: ...
       temperature: 0.7,
     });
 
-    const result = response.text;
+      const result = response.text;
+      
+      const match = result.match(/Score:\s*(\d+)/)
+      const score = match ? parseInt(match[1], 10) : null;
 
-    res.status(200).json({
-      message: "PDF parsed and analyzed successfully",
-      aiResponse: result,
-    });
+      const reasonMatch = result.match(/Reason:\s*([\s\S]*)/);
+      const reason = reasonMatch ? reasonMatch[1].trim() : null;
+
+      const newResume = new ResumeModel({
+          user,
+          resume_name: req.file.originalname,
+          job_desc,
+          score,
+          feedback: reason
+      })
+
+      await newResume.save()
+
+      fs.unlinkSync(pdfPath)
+
+      res.status(200).json({ message: "Your analysis are ready!", data: newResume });
   } catch (error) {
     console.error(error);
     res.status(500).json({
@@ -56,3 +71,41 @@ Reason: ...
     });
   }
 };
+
+exports.getAllResumesForUser = async (req, res) => {
+  try {
+
+    const { user } = req.params;
+    let resumes = await ResumeModel.find({ user: user }).sort({
+      createdAt: -1,
+    });
+    return res.status(200).json({ message: "Your Previous History", resumes: resumes });
+  }
+  catch (error)
+  {
+    console.error(error);
+    res.status(500)
+    .json({
+      error: "Server Error",
+      message: error.message,
+    });
+  }
+}
+
+exports.getResumeForAdmin = async (req, res) => {
+  try {
+    let resumes = await ResumeModel.find().sort({
+      createdAt: -1,
+    });
+    return res
+      .status(200)
+      .json({ message: "Fetched All History", resumes: resumes });
+  } catch (error) {
+    console.error(error);
+    res.status(500)
+    .json({
+      error: "Server Error",
+      message: error.message,
+    });
+  }
+}
