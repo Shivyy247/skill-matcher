@@ -3,39 +3,52 @@ import styles from "./Dashboard.module.css";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import Skeleton from "@mui/material/Skeleton";
 import WithAuthHOC from "../../utils/withAuthHOC";
-import axios from '../../utils/axios'
+import axios from "../../utils/axios";
 import { AuthContext } from "../../utils/HOC/AuthContext";
-
 
 const Dashboard = () => {
 
-  const [uploadFiletext, setUploadFiletext] = useState("Upload Resume")
-  const [loading, setLoading] = useState(false)
-  const [resumeFile, setResumeFile] = useState(null)
-  const [jobDesc, setJobDesc] = useState("")
-  const [result, setResult] = useState(null)
+  const [uploadFiletext, setUploadFiletext] = useState("Upload Resume");
+  const [loading, setLoading] = useState(false);
+  const [resumeFile, setResumeFile] = useState(null);
+  const [jobDesc, setJobDesc] = useState("");
+  const [result, setResult] = useState(null);
 
-  const {userInfo} = useContext(AuthContext)
-
+  const { userInfo } = useContext(AuthContext);
 
   const handleOnChangeFile = (e) => {
-    setResumeFile(e.target.files[0]);
-    setUploadFiletext(e.target.files[0].name);
-  }
+    const file = e.target.files[0];
+    if (file) {
+      setResumeFile(file);
+      setUploadFiletext(file.name);
+    }
+  };
 
   const handleUpload = async () => {
-    setResult(null)
+    setResult(null);
+
     if (!jobDesc || !resumeFile) {
-      alert("Please fill Job Description & Upload Resume")
+      alert("Please fill Job Description & Upload Resume");
       return;
     }
-    const formData = new FormData()
-    formData.append("resume", resumeFile)
-    formData.append("job_desc", jobDesc)
+
+    const formData = new FormData();
+    formData.append("resume", resumeFile);
+    formData.append("job_desc", jobDesc);
     formData.append("user", userInfo._id);
 
-    const result = axios.post("/api/resume/addResume", formData);
-  }
+    setLoading(true);
+
+    try {
+      const response = await axios.post("/api/resume/addResume", formData);
+      console.log(response.data);
+      setResult(response.data.data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className={styles.Dashboard}>
@@ -78,13 +91,15 @@ const Dashboard = () => {
         <div className={styles.jobDesc}>
           <textarea
             value={jobDesc}
-            onChange={(e)=>{setJobDesc(e.target.value)}}
+            onChange={(e) => setJobDesc(e.target.value)}
             className={styles.textArea}
             placeholder="Paste your Job Description"
             rows={10}
             cols={50}
           />
-          <div className={styles.AnalyzeBtn}>Analyze</div>
+          <div className={styles.AnalyzeBtn} onClick={handleUpload}>
+            Analyze
+          </div>
         </div>
       </div>
 
@@ -93,41 +108,41 @@ const Dashboard = () => {
           <div>Analyze With AI</div>
           <img
             className={styles.profileImg}
-            src="https://i.pinimg.com/originals/bc/05/29/bc05295deed15211fc8ac34dc966dab5.jpg"
-            alt="ladybug"
+            src={userInfo?.photoUrl}
           />
-          <h2>Shivyy</h2>
+          <h2>{userInfo?.name}</h2>
         </div>
 
-        {/* <div className={styles.DashboardRightTopCard}>
-          <div>Result</div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: 20,
-            }}
-          >
-            <h1>75%</h1>
-            <BarChartIcon sx={{ fontSize: 42 }} />
-          </div>
-          <div className={styles.feedback}>
-            <h2>feedback</h2>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim
-              officia eius, voluptatum veritatis assumenda impedit alias
-              repudiandae minus rem at?
-            </p>
-          </div>
-        </div> */}
+        {loading ? (
+          <Skeleton
+            variant="rectangular"
+            sx={{ borderRadius: "20px" }}
+            width={280}
+            height={280}
+          />
+        ) : (
+          result && (
+            <div className={styles.DashboardRightTopCard}>
+              <div>Result</div>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: 20,
+                }}
+              >
+                <h1>{result?.score}%</h1>
+                <BarChartIcon sx={{ fontSize: 42 }} />
+              </div>
 
-        <Skeleton
-          variant="rectangural"
-          sx={{ borderRadius: "20px" }}
-          width={280}
-          height={280}
-        />
+              <div className={styles.feedback}>
+                <h2>Feedback</h2>
+                <p>{result?.feedback}</p>
+              </div>
+            </div>
+          )
+        )}
       </div>
     </div>
   );
