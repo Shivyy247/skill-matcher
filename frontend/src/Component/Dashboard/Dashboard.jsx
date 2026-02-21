@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./Dashboard.module.css";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import Skeleton from "@mui/material/Skeleton";
 import WithAuthHOC from "../../utils/withAuthHOC";
+import axios from '../../utils/axios'
+import { AuthContext } from "../../utils/HOC/AuthContext";
+
 
 const Dashboard = () => {
 
@@ -10,10 +13,28 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(false)
   const [resumeFile, setResumeFile] = useState(null)
   const [jobDesc, setJobDesc] = useState("")
+  const [result, setResult] = useState(null)
+
+  const {userInfo} = useContext(AuthContext)
+
 
   const handleOnChangeFile = (e) => {
     setResumeFile(e.target.files[0]);
     setUploadFiletext(e.target.files[0].name);
+  }
+
+  const handleUpload = async () => {
+    setResult(null)
+    if (!jobDesc || !resumeFile) {
+      alert("Please fill Job Description & Upload Resume")
+      return;
+    }
+    const formData = new FormData()
+    formData.append("resume", resumeFile)
+    formData.append("job_desc", jobDesc)
+    formData.append("user", userInfo._id);
+
+    const result = axios.post("/api/resume/addResume", formData);
   }
 
   return (
@@ -56,6 +77,8 @@ const Dashboard = () => {
 
         <div className={styles.jobDesc}>
           <textarea
+            value={jobDesc}
+            onChange={(e)=>{setJobDesc(e.target.value)}}
             className={styles.textArea}
             placeholder="Paste your Job Description"
             rows={10}
