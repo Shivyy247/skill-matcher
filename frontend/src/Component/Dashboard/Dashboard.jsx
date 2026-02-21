@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Dashboard.module.css";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import Skeleton from "@mui/material/Skeleton";
 import WithAuthHOC from "../../utils/withAuthHOC";
 
 const Dashboard = () => {
+
+  const [uploadFiletext, setUploadFiletext] = useState("Upload Resume")
+  const [loading, setLoading] = useState(false)
+  const [resumeFile, setResumeFile] = useState(null)
+  const [jobDesc, setJobDesc] = useState("")
+
+  const handleOnChangeFile = (e) => {
+    setResumeFile(e.target.files[0]);
+    setUploadFiletext(e.target.files[0].name);
+  }
+
   return (
     <div className={styles.Dashboard}>
       <div className={styles.DashboardLeft}>
@@ -29,12 +40,17 @@ const Dashboard = () => {
         </div>
 
         <div className={styles.DashboardUploadResume}>
-          <div className={styles.DashboardResumeBlock}>Upload Your Resume</div>
+          <div className={styles.DashboardResumeBlock}>{uploadFiletext}</div>
           <div className={styles.DashboardInputField}>
             <label htmlFor="inputField" className={styles.analyzeAIBtn}>
               Upload Resume
             </label>
-            <input type="file" accept=".pdf" id="inputField" />
+            <input
+              type="file"
+              accept=".pdf"
+              id="inputField"
+              onChange={handleOnChangeFile}
+            />
           </div>
         </div>
 
@@ -83,7 +99,12 @@ const Dashboard = () => {
           </div>
         </div> */}
 
-        <Skeleton variant="rectangural" sx={{borderRadius: "20px" }} width={280} height={280} />
+        <Skeleton
+          variant="rectangural"
+          sx={{ borderRadius: "20px" }}
+          width={280}
+          height={280}
+        />
       </div>
     </div>
   );
