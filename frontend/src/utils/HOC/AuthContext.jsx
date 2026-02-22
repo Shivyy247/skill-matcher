@@ -5,8 +5,12 @@ export const AuthContext = createContext()
 const AuthProvider = ({children}) => {
     
     var login = localStorage.getItem('isLogin')
+
     var useInfoData = localStorage.getItem("userInfo")
-    const [isLogin, setLogin] = useState(login?login:false)
+
+    // const [isLogin, setLogin] = useState(login?login:false)
+    const [isLogin, setLogin] = useState(login === "true");
+    
     const [userInfo, setUserInfo] = useState(
       useInfoData ? JSON.parse(useInfoData) : null,
     );

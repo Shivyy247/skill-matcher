@@ -13,6 +13,35 @@ const Login = () => {
     useContext(AuthContext);
   const navigate = useNavigate();
 
+  // const handleLogin = async () => {
+  //   try {
+  //     const result = await signInWithPopup(auth, provider);
+  //     const user = result.user;
+
+  //     const userData = {
+  //       name: user.displayName,
+  //       email: user.email,
+  //       photoUrl: user.photoURL,
+  //     };
+
+  //     await axios.post("/api/user", userData).then((response) => {
+  //       setUserInfo(response.data.user);
+  //       localStorage.setItem("userInfo", JSON.stringify(response.data.user));
+  //     }).catch(err => {
+  //       console.log(err)
+  //     })
+
+  //     setLogin(true);
+
+  //     localStorage.setItem("isLogin", "true");
+
+  //     navigate("/dashboard");
+  //   } catch (error) {
+  //     console.log(error);
+  //     alert("Something went wrong!");
+  //   }
+  // };
+
   const handleLogin = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
@@ -24,24 +53,25 @@ const Login = () => {
         photoUrl: user.photoURL,
       };
 
-      await axios.post("/api/user", userData).then((response) => {
-        setUserInfo(response.data.user);
-        localStorage.setItem("userInfo", JSON.stringify(response.data.user));
-      }).catch(err => {
-        console.log(err)
-      })
+      // ✅ WAIT properly for backend response
+      const response = await axios.post("/api/user", userData);
 
+      const backendUser = response.data.user;
+
+      // ✅ Set context
+      setUserInfo(backendUser);
       setLogin(true);
 
+      // ✅ Save to localStorage
+      localStorage.setItem("userInfo", JSON.stringify(backendUser));
       localStorage.setItem("isLogin", "true");
 
       navigate("/dashboard");
     } catch (error) {
-      console.log(error);
-      alert("Something went wrong!");
+      console.log("LOGIN ERROR:", error);
+      alert("Login failed. Check console.");
     }
   };
-
 
   return (
     <div className={styles.Login}>

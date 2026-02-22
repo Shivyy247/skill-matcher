@@ -78,10 +78,10 @@ const Sidebar = () => {
       </div>
 
       <div onClick={handleLogOut} className={styles.sideBarOptionBlock}>
-        <Link className={styles.sideBarOption}>
+        <div className={styles.sideBarOption}>
           <ExitToAppIcon sx={{ fontSize: 22 }} />
           <div>LogOut</div>
-        </Link>
+        </div>
       </div>
     </div>
   );

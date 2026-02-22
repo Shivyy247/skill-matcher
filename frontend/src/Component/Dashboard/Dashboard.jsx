@@ -35,6 +35,10 @@ const Dashboard = () => {
     const formData = new FormData();
     formData.append("resume", resumeFile);
     formData.append("job_desc", jobDesc);
+    if (!userInfo?._id) {
+      alert("User not logged in properly");
+      return;
+    }
     formData.append("user", userInfo._id);
 
     setLoading(true);
@@ -108,7 +112,9 @@ const Dashboard = () => {
           <div>Analyze With AI</div>
           <img
             className={styles.profileImg}
-            src={userInfo?.photoUrl}
+            src={userInfo?.photoUrl || ""}
+            alt="profile"
+            referrerPolicy="no-referrer"
           />
           <h2>{userInfo?.name}</h2>
         </div>
