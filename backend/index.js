@@ -1,9 +1,10 @@
+require("dotenv").config();
 const express = require("express");
-const cors = require('cors')
+const cors = require("cors");
 const app = express();
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
-app.use(express.json()); 
+app.use(express.json());
 app.use(
   cors({
     credentials: true,
@@ -13,14 +14,11 @@ app.use(
 require("./conn");
 
 const UserRoutes = require("./Routes/user");
-const ResumeRoutes = require("./Routes/resume")
+const ResumeRoutes = require("./Routes/resume");
 
 app.use("/api/user", UserRoutes);
-app.use('/api/resume', ResumeRoutes);
-
+app.use("/api/resume", ResumeRoutes);
 
 app.listen(PORT, () => {
   console.log("backend is running on port", PORT);
 });
-
-
