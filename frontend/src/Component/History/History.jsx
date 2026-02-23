@@ -68,7 +68,7 @@ const History = () => {
             <div key={item._id} className={styles.historyCard}>
               <div className={styles.cardPercentage}>{item.score}%</div>
               {/* <h2></h2> */}
-              <p>Resume Name : {item.resume_name}</p>
+              <p>{item.resume_name}</p>
               <p>{item.feedback}</p>
               <p>Dated : {item.createdAt.slice(0, 10)}</p>
             </div>

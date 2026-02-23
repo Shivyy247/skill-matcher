@@ -3,6 +3,7 @@ const fs = require("fs");
 const pdfParse = require("pdf-parse");
 const { CohereClient } = require("cohere-ai");
 
+// ⚠️ Move this to .env later
 const cohere = new CohereClient({
   token: process.env.COHERE_API_KEY,
 });
@@ -17,6 +18,7 @@ exports.addResume = async (req, res) => {
 
     const pdfPath = req.file.path;
     const dataBuffer = fs.readFileSync(pdfPath);
+
     const pdfData = await pdfParse(dataBuffer);
 
     const prompt = `
@@ -29,52 +31,40 @@ ${pdfData.text}
 Job Description:
 ${job_desc}
 
-Return the score and explanation in this format:
+Return the score and a brief explanation in this format:
 Score: XX
 Reason: ...
 `;
 
-    let score = null;
-    let reason = "Analysis failed";
+    const response = await cohere.chat({
+      model: "command-a-03-2025",
+      message: prompt,
+      temperature: 0.7,
+    });
 
-    try {
-      const response = await cohere.chat({
-        model: "command-r",
-        message: prompt,
-        temperature: 0.7,
-      });
-
-      const result = response.text || "";
-
-      const match = result.match(/Score:\s*(\d+)/);
-      score = match ? parseInt(match[1], 10) : null;
+      const result = response.text;
+      
+      const match = result.match(/Score:\s*(\d+)/)
+      const score = match ? parseInt(match[1], 10) : null;
 
       const reasonMatch = result.match(/Reason:\s*([\s\S]*)/);
-      reason = reasonMatch ? reasonMatch[1].trim() : "No feedback generated";
-    } catch (aiError) {
-      console.error("Cohere Error:", aiError.message);
-      score = 0;
-      reason = "AI analysis temporarily unavailable.";
-    }
+      const reason = reasonMatch ? reasonMatch[1].trim() : null;
 
-    const newResume = new ResumeModel({
-      user,
-      resume_name: req.file.originalname,
-      job_desc,
-      score,
-      feedback: reason,
-    });
+      const newResume = new ResumeModel({
+          user,
+          resume_name: req.file.originalname,
+          job_desc,
+          score,
+          feedback: reason
+      })
 
-    await newResume.save();
+      await newResume.save()
 
-    fs.unlinkSync(pdfPath);
+      fs.unlinkSync(pdfPath)
 
-    res.status(200).json({
-      message: "Analysis complete",
-      data: newResume,
-    });
+      res.status(200).json({ message: "Your analysis are ready!", data: newResume });
   } catch (error) {
-    console.error("Resume Controller Error:", error.message);
+    console.error(error);
     res.status(500).json({
       error: "Server Error",
       message: error.message,
@@ -84,38 +74,38 @@ Reason: ...
 
 exports.getAllResumesForUser = async (req, res) => {
   try {
+
     const { user } = req.params;
-
-    const resumes = await ResumeModel.find({ user }).sort({ createdAt: -1 });
-
-    res.status(200).json({
-      message: "Your Previous History",
-      resumes,
+    let resumes = await ResumeModel.find({ user: user }).sort({
+      createdAt: -1,
     });
-  } catch (error) {
-    console.error("User Resume Fetch Error:", error.message);
-    res.status(500).json({
+    return res.status(200).json({ message: "Your Previous History", resumes: resumes });
+  }
+  catch (error)
+  {
+    console.error(error);
+    res.status(500)
+    .json({
       error: "Server Error",
       message: error.message,
     });
   }
-};
+}
 
 exports.getResumeForAdmin = async (req, res) => {
   try {
-    const resumes = await ResumeModel.find()
-      .sort({ createdAt: -1 })
-      .populate("user");
-
-    res.status(200).json({
-      message: "Fetched All History",
-      resumes,
-    });
+    let resumes = await ResumeModel.find().sort({
+      createdAt: -1,
+    }).populate('user');
+    return res
+      .status(200)
+      .json({ message: "Fetched All History", resumes: resumes });
   } catch (error) {
-    console.error("Admin Resume Fetch Error:", error.message);
-    res.status(500).json({
+    console.error(error);
+    res.status(500)
+    .json({
       error: "Server Error",
       message: error.message,
     });
   }
-};
+}

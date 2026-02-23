@@ -1,39 +1,56 @@
-.sideBar{
-    flex: 0.2;
-    background-color: #0b0b5a;
-    color: white;
-    height: 200vh;
-    flex-shrink: 0;
+.sideBar {
+  width: 240px;              /* FIXED WIDTH */
+  background: #1E1B4B;       /* deeper aesthetic blue */
+  color: white;
+  height: 100vh;             /* NOT 200vh */
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
 }
 
-.sideBarIcon{
-    padding: 20px 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 40px;
+/* TOP LOGO SECTION */
+
+.sideBarIcon {
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-.sideBarTopContent{
-    font-size: 26px;
+.sideBarTopContent {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 10px;
+  letter-spacing: 0.5px;
 }
 
-.sideBarOptionBlock{
-    margin-top: 30px;
+/* OPTIONS */
+
+.sideBarOptionBlock {
+  margin-top: 10px;
 }
 
-.sideBarOption{
-    padding: 20px;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    font-size: 22px;
-    cursor: pointer;
-    color: white;
-    text-decoration: dashed;
+.sideBarOption {
+  padding: 16px 28px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #E0E7FF;
+  text-decoration: none;
+  transition: all 0.25s ease;
 }
 
-.selectedOption{
-    background-color: rgb(72,72,222);
+.sideBarOption:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* SELECTED */
+
+.selectedOption {
+  background: linear-gradient(135deg, #6366F1, #A78BFA);
+  color: white;
 }

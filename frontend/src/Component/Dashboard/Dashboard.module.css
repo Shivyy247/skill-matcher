@@ -1,363 +1,227 @@
 .Dashboard {
-    flex: 0.8;
-    height: 100vh;
-    overflow: auto;
-    padding: 50px;
-    display: flex;
-    justify-content: space-between;
-    background-color: whitesmoke;
-    box-sizing: border-box;
+  flex: 1;
+  height: 100vh;
+  overflow: auto;
+  padding: 60px;
+  display: flex;
+  gap: 60px;
+  background: #F8FAFC;
+  box-sizing: border-box;
 }
+
+/* LEFT PANEL */
 
 .DashboardLeft {
-    width: 70%;
-    padding: 30px;
-    height: 100%;
-    height: fit-content;
-    box-sizing: border-box;
-    background-color: #f4f6fa;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-
+  width: 70%;
+  padding: 55px;
+  background: #ffffff;
+  border-radius: 22px;
+  box-shadow: 0 25px 50px rgba(15, 23, 42, 0.06);
 }
+
+/* SMALL TOP LABEL */
 
 .DashboardHeaderTitle {
-    font-size: 26px;
-    font-weight: 600;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #6366F1;
+  margin-bottom: 12px;
 }
+
+/* MAIN HERO TITLE */
 
 .DashboardHeaderLargeTitle {
-    font-size: 52px;
+  font-size: 56px;
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 40px;
+  color: #0F172A;
 }
 
+/* INSTRUCTION BOX */
 
 .alertInfo {
-    width: 100%;
-    box-sizing: border-box;
-    border-radius: 30px;
-    padding: 15px 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 40px 0;
-    font-size: 16px;
-    background-color: white;
+  background: #EEF2FF;
+  border-radius: 18px;
+  padding: 26px 32px;
+  margin-bottom: 40px;
+  line-height: 1.7;
+  border-left: 6px solid #6366F1;
 }
 
-.dashboardInstruction {
-    margin-left: 40px;
+.alertInfo > div:first-child {
+  font-size: 17px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #1E293B;
 }
 
+.dashboardInstruction div {
+  font-size: 14px;
+  color: #475569;
+  margin-bottom: 6px;
+}
+
+/* UPLOAD SECTION */
 
 .DashboardUploadResume {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
+  display: flex;
+  align-items: center;   
+  gap: 20px;
+  margin-bottom: 30px;
 }
-
 
 .DashboardResumeBlock {
-    width: 65%;
-    background-color: white;
-    border-radius: 30px;
-    padding: 15px 30px;
-    box-sizing: border-box;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-size: 22px;
-}
-
-.DashboardInputField {
-    display: flex;
-    align-items: center;
+  flex: 1;
+  background: #F1F5F9;
+  border-radius: 16px;
+  padding: 16px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #334155;
 }
 
 .analyzeAIBtn {
-    font-size: 18px;
-    cursor: pointer;
-    padding: 20px 40px;
-    color: white;
-    font-weight: 700;
-    background: linear-gradient(90deg, #433da9, #0a10be);
-    border-radius: 30px;
-    border: 3px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  padding: 0 28px;
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(135deg, #6366F1, #A78BFA);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.analyzeAIBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(99, 102, 241, 0.25);
 }
 
 input {
-    display: none;
+  display: none;
 }
 
+/* JOB DESCRIPTION */
+
 .jobDesc {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 30px;
-    box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
 
 .textArea {
-    outline: none;
-    border-radius: 20px;
-    border: 2px solid rgb(14, 14, 97);
-    padding: 10px 20px;
-    box-sizing: border-box;
-    width: 65%;
-    resize: none;
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid #E2E8F0;
+  padding: 20px;
+  resize: none;
+  font-size: 15px;
+  color: #0F172A;
+  outline: none;
+  transition: all 0.2s ease;
+  line-height: 1.6;
 }
+
+.textArea:focus {
+  border-color: #A78BFA;
+  box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.15);
+}
+
+/* ANALYZE BUTTON */
 
 .AnalyzeBtn {
-    width: 140px;
-    height: 140px;
-    border: 3px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 100%;
-    background: linear-gradient(90deg,  #433da9, #0a10be);
-    font-size: 22px;
-    color: white;
-    cursor: pointer;
-    font-weight: 600;
+  align-self: flex-start;
+  padding: 14px 40px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #6366F1, #A78BFA);
+  color: white;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
+
+.AnalyzeBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 35px rgba(99, 102, 241, 0.25);
+}
+
+/* RIGHT PANEL */
+
 .DashboardRight {
-    width: 25%;
-    height: fit-content;
-    box-sizing: border-box;
-    background-color: #f4f6fa;
-    display: flex;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.DashboardRightTopCard {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 35px;
+  box-shadow: 0 25px 50px rgba(15, 23, 42, 0.06);
+  text-align: center;
+}
+
+.DashboardRightTopCard div:first-child {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #64748B;
+  margin-bottom: 15px;
+}
+
+.profileImg {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 18px 0;
+}
+
+.DashboardRightTopCard h1 {
+  font-size: 60px;
+  font-weight: 900;
+  color: #6366F1;
+  margin: 15px 0;
+}
+
+/* FEEDBACK */
+
+.feedback {
+  margin-top: 25px;
+  text-align: left;
+}
+
+.feedback h2 {
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #0F172A;
+}
+
+.feedback p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #475569;
+}
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 900px) {
+  .Dashboard {
     flex-direction: column;
-    justify-content: space-between;
-    gap: 20px;
+  }
 
-}
-
-.DashboardRightTopCard{
-    border-radius: 20px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    
-}
-
-.DashboardRightTopCard  div:first-child{
-    font-size: 22px;
-    font-weight: 700;
-}
-
-.profileImg{
-    width: 85px ;
-    height: 85px;
-    border-radius: 100%;
-    margin: 20px 0;
-}
-
-
-
-@media screen and (max-width:780px){
-    .Dashboard{
-        flex-direction: column;
-    }
-    .DashboardLeft{
-        width: 100%;
-    }
-    .DashboardHeaderTitle{
-        font-size: 26px;
-    }
-    .DashboardHeaderLargeTitle{
-        font-size: 34px;
-    }
-    .DashboardRight{
-        width: 100%;
-        margin-top: 30px;
-    }
-    .DashboardUploadResume{
-        flex-direction: column;
-    }
-    .DashboardResumeBlock{
-        width: 100%;
-    }
-    .DashboardInputField{
-        width: 100%;
-    }
-    label{
-        width: 100%;
-        text-align: center;
-    }
-    .jobDesc{
-        flex-direction: column;
-        gap: 20px;
-    }
-    .textArea{
-        width: 100%;
-    }
-    .AnalyzeBtn{
-        border-radius: 30px;
-        width: 100%;
-        height: fit-content;
-        padding: 15px;
-        box-sizing: border-box;
-    }
-}
-
-/* .Dashboard{
-    flex: 0.8;
-    height: 100vh;
-    overflow: auto;
-    padding: 50px;
-    display: flex;
-    justify-content: space-between;
-    background-color: rgb(72,72,222);
-    box-sizing: border-box;
-    color: beige;
-}
-
-.DashboardLeft{
-    width: 70%;
-    padding: 30px;
-    height: 100%;
-    height: fit-content;
-    box-sizing: border-box;
-    background-color: #0a045e;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(12, 9, 152, 0.586);
-}
-
-/* .DashboardHeader{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-} */
-
-/* .DashboardHeaderTitle{
-    font-size: 26px;
-    font-weight: 600;
-}
-
-.DashboardHeaderLargeTitle{
-    font-size: 52px;
-}
-
-.alertInfo{
+  .DashboardLeft,
+  .DashboardRight {
     width: 100%;
-    box-sizing: border-box;
-    border-radius: 30px;
-    padding: 15px 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 40px 0;
-    font-size: 16px;
-    background-color: rgb(72,72,222);
+  }
 }
-
-.dashboardInstruction{
-    margin-left: 40px;
-}
-
-.DashboardUploadResume{
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-}
-
-.DashboardResumeBlock{
-    width: 65%;
-    background-color: rgb(72,72,222);
-    border-radius: 30px;
-    padding: 15px 30px;
-    box-sizing: border-box;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    font-size: 22px;  
-}
-
-.DashboardInputField{
-    display: flex;
-    align-items: center;
-}
-
-.analyzeAIBtn{
-    font-size: 18px;
-    cursor: pointer;
-    padding: 20px 40px;
-    color: rgb(84, 219, 219);
-    font-weight: 700;
-    background: linear-gradient(90deg, #1f1a5b, rgb(35, 35, 174));
-    border-radius: 30px;
-    border: 3px solid black;
-}
-
-input{
-    display: none;
-}
-
-.jobDesc{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 30px;
-    box-sizing: border-box;
-}
-
-.textArea{
-    outline: none;
-    border-radius: 20px;
-    border: 2px solid rgb(35, 35, 174);
-    padding: 10px 20px;
-    box-sizing: border-box;
-    width: 65%;
-    resize: none;
-    background-color: rgb(72,72,222);
-    font-size: 18px;
-    font-weight: 600;
-}
-
-.AnalyzeBtn{
-    width: 150px;
-    height: 150px;
-    border: 3px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 100%;
-    background: linear-gradient(90deg, #221f3f, rgb(35, 35, 174));
-    font-size: 22px;
-    color: rgb(84, 219, 219);
-    cursor: pointer;
-    font-weight: 600;
-}
-
-.DashboardRight{
-    width: 25%;
-    height: fit-content;
-    box-sizing: border-box;
-    background-color: #0a045e;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.DashboardRightTopCard{
-    border-radius: 20px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-}
-
-.DashboardRightTopCard{
-    font-size: 22px;
-    font-weight: 600;
-}
-
-.profileImg{
-    width: 95px;
-    height: 95px;
-    border-radius: 100%;
-    margin: 40px 20px;
-}
-
-@media screen and (max-width:780px) {
-    .Dashboard{
-        flex-direction: column;
-    }
-    
-} */

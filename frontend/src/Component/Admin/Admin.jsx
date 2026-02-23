@@ -55,13 +55,11 @@ const Admin = () => {
         {
           data.map((item, index) => {
             return (
-              <div className={styles.adminCard}>
+              <div key={item._id} className={styles.adminCard}>
                 <h2>{item.user?.name}</h2>
                 <p style={{ color: "blue" }}>{item?.user?.email}</p>
                 <h3>Score : {item.score}%</h3>
-                <p>
-                  {item.feedback}
-                </p>
+                <p>{item.feedback}</p>
               </div>
             );
           })
