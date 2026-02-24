@@ -91,28 +91,24 @@
 
 /* ================= DARK MODE ================= */
 
-body.dark .admin {
+:global(body.dark) .admin {
   background: #0f172a;
 }
 
-body.dark .adminCard {
+:global(body.dark) .adminCard {
   background: #1e293b;
   box-shadow: none;
 }
 
-body.dark .adminCard:hover {
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-}
-
-body.dark .adminCard h2 {
+:global(body.dark) .adminCard h2 {
   color: #f1f5f9;
 }
 
-body.dark .adminCard p:nth-of-type(1) {
+:global(body.dark) .adminCard p:nth-of-type(1) {
   color: #a5b4fc;
 }
 
-body.dark .adminCard p:last-of-type {
+:global(body.dark) .adminCard p:last-of-type {
   color: #cbd5e1;
 }
 

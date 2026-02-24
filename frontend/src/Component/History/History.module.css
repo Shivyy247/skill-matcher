@@ -1,7 +1,6 @@
 .history {
-  flex: 0.8;
-  height: 100vh;
-  overflow: auto;
+  flex: 1;
+  overflow-y: auto;
   padding: 60px;
   background: #F8FAFC;
   box-sizing: border-box;
@@ -86,30 +85,27 @@
   }
 }
 
+
 /* ================= DARK MODE ================= */
 
-body.dark .history {
+:global(body.dark) .history {
   background: #0f172a;
 }
 
-body.dark .historyCard {
+:global(body.dark) .historyCard {
   background: #1e293b;
   box-shadow: none;
 }
 
-body.dark .historyCard:hover {
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-}
-
-body.dark .historyCard p {
+:global(body.dark) .historyCard p {
   color: #cbd5e1;
 }
 
-body.dark .historyCard p:first-of-type {
+:global(body.dark) .historyCard p:first-of-type {
   color: #f1f5f9;
 }
 
-body.dark .historyCard p:last-of-type {
+:global(body.dark) .historyCard p:last-of-type {
   color: #94a3b8;
 }
 

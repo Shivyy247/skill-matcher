@@ -228,57 +228,45 @@ input {
 
 /* ================= DARK MODE ================= */
 
-body.dark .Dashboard {
+/* ================= DARK MODE ================= */
+
+:global(body.dark) .Dashboard {
   background: #0f172a;
 }
 
-body.dark .DashboardLeft,
-body.dark .DashboardRightTopCard {
+:global(body.dark) .DashboardLeft,
+:global(body.dark) .DashboardRightTopCard {
   background: #1e293b;
   box-shadow: none;
 }
 
-body.dark .DashboardHeaderLargeTitle {
+:global(body.dark) .DashboardHeaderLargeTitle {
   color: #f1f5f9;
 }
 
-body.dark .alertInfo {
+:global(body.dark) .alertInfo {
   background: #1e293b;
   border-left: 6px solid #818cf8;
 }
 
-body.dark .alertInfo > div:first-child,
-body.dark .feedback h2 {
-  color: #f1f5f9;
-}
-
-body.dark .dashboardInstruction div,
-body.dark .feedback p {
+:global(body.dark) .dashboardInstruction div,
+:global(body.dark) .feedback p {
   color: #cbd5e1;
 }
 
-body.dark .DashboardResumeBlock {
+:global(body.dark) .feedback h2 {
+  color: #f8fafc;
+}
+
+:global(body.dark) .DashboardResumeBlock {
   background: #334155;
   color: #e2e8f0;
 }
 
-body.dark .textArea {
+:global(body.dark) .textArea {
   background: #334155;
   border: 1px solid #475569;
   color: #f1f5f9;
-}
-
-body.dark .textArea:focus {
-  border-color: #a78bfa;
-  box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.2);
-}
-
-body.dark .DashboardRightTopCard div:first-child {
-  color: #94a3b8;
-}
-
-body.dark .feedback h2 {
-  color: #f8fafc;
 }
 
 

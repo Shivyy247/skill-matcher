@@ -57,19 +57,21 @@
 
 /* ================= DARK MODE ================= */
 
-body.dark .sideBar {
+/* ================= DARK MODE ================= */
+
+:global(body.dark) .sideBar {
   background: #111827;
 }
 
-body.dark .sideBarOption {
+:global(body.dark) .sideBarOption {
   color: #d1d5db;
 }
 
-body.dark .sideBarOption:hover {
+:global(body.dark) .sideBarOption:hover {
   background: rgba(255, 255, 255, 0.05);
 }
 
-body.dark .selectedOption {
+:global(body.dark) .selectedOption {
   background: linear-gradient(135deg, #4f46e5, #7c3aed);
 }
 

@@ -1,14 +1,18 @@
-body{
+* {
+  box-sizing: border-box;
+}
+
+html, body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  overflow-x: hidden;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .App{
   display: flex;
   flex-shrink: 0;
-  box-sizing: border-box;
+  min-height: 100vh;
 }
 
 @media screen and (max-width:780px){
@@ -26,11 +30,6 @@ body {
 body.dark {
   background-color: #121212;
   color: #f5f5f5;
-}
-
-/* Make sure App takes full height */
-.App {
-  min-height: 100vh;
 }
 
 /* Theme Toggle Button */
@@ -57,7 +56,6 @@ body:not(.dark) .themeToggle {
   color: black;
 }
 
-/* Responsive improvement */
 @media screen and (max-width:780px){
   .themeToggle{
     top: 10px;

@@ -70,38 +70,32 @@
   }
 }
 
-/* ================= DARK MODE ================= */
 
 /* ================= FULL DARK LOGIN ================= */
 
-body.dark .Login {
-  background: #0f172a !important;
+:global(body.dark) .Login {
+  background: #0f172a;
 }
 
-body.dark .loginCard {
-  background: #1e293b !important;
+:global(body.dark) .loginCard {
+  background: #1e293b;
   box-shadow: none;
 }
 
-body.dark .loginCardTitle h1 {
-  color: #f8fafc !important;
+:global(body.dark) .loginCardTitle h1 {
+  color: #f8fafc;
 }
 
-body.dark .googleBtn {
-  background: #334155 !important;
-  border: 1px solid #475569 !important;
-  color: #f8fafc !important;
-}
-
-body.dark .googleBtn:hover {
-  background: #3b4252 !important;
-  border-color: #6366f1 !important;
+:global(body.dark) .googleBtn {
+  background: #334155;
+  border: 1px solid #475569;
+  color: #f8fafc;
 }
 
 
 /* ================= EXTRA RESPONSIVE POLISH ================= */
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .loginCardTitle h1 {
     font-size: 26px;
   }
@@ -116,4 +110,4 @@ body.dark .googleBtn:hover {
     height: 48px;
     font-size: 14px;
   }
-}
+} */
