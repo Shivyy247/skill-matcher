@@ -88,3 +88,51 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ================= DARK MODE ================= */
+
+body.dark .admin {
+  background: #0f172a;
+}
+
+body.dark .adminCard {
+  background: #1e293b;
+  box-shadow: none;
+}
+
+body.dark .adminCard:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+body.dark .adminCard h2 {
+  color: #f1f5f9;
+}
+
+body.dark .adminCard p:nth-of-type(1) {
+  color: #a5b4fc;
+}
+
+body.dark .adminCard p:last-of-type {
+  color: #cbd5e1;
+}
+
+
+/* ================= EXTRA RESPONSIVE POLISH ================= */
+
+@media screen and (max-width: 600px) {
+  .admin {
+    padding: 20px;
+  }
+
+  .adminCard {
+    padding: 22px;
+  }
+
+  .adminCard h2 {
+    font-size: 16px;
+  }
+
+  .adminCard h3 {
+    font-size: 20px;
+  }
+}

@@ -225,3 +225,96 @@ input {
     width: 100%;
   }
 }
+
+/* ================= DARK MODE ================= */
+
+body.dark .Dashboard {
+  background: #0f172a;
+}
+
+body.dark .DashboardLeft,
+body.dark .DashboardRightTopCard {
+  background: #1e293b;
+  box-shadow: none;
+}
+
+body.dark .DashboardHeaderLargeTitle {
+  color: #f1f5f9;
+}
+
+body.dark .alertInfo {
+  background: #1e293b;
+  border-left: 6px solid #818cf8;
+}
+
+body.dark .alertInfo > div:first-child,
+body.dark .feedback h2 {
+  color: #f1f5f9;
+}
+
+body.dark .dashboardInstruction div,
+body.dark .feedback p {
+  color: #cbd5e1;
+}
+
+body.dark .DashboardResumeBlock {
+  background: #334155;
+  color: #e2e8f0;
+}
+
+body.dark .textArea {
+  background: #334155;
+  border: 1px solid #475569;
+  color: #f1f5f9;
+}
+
+body.dark .textArea:focus {
+  border-color: #a78bfa;
+  box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.2);
+}
+
+body.dark .DashboardRightTopCard div:first-child {
+  color: #94a3b8;
+}
+
+body.dark .feedback h2 {
+  color: #f8fafc;
+}
+
+
+/* ================= IMPROVED RESPONSIVE ================= */
+
+@media screen and (max-width: 1200px) {
+  .Dashboard {
+    padding: 30px;
+    gap: 30px;
+  }
+
+  .DashboardLeft {
+    padding: 30px;
+  }
+
+  .DashboardHeaderLargeTitle {
+    font-size: 42px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .Dashboard {
+    padding: 20px;
+  }
+
+  .DashboardHeaderLargeTitle {
+    font-size: 32px;
+  }
+
+  .AnalyzeBtn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .DashboardUploadResume {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

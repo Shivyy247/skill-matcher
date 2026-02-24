@@ -16,3 +16,53 @@ body{
     flex-direction: column;
   }
 }
+
+/* Smooth theme transition */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode base */
+body.dark {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+/* Make sure App takes full height */
+.App {
+  min-height: 100vh;
+}
+
+/* Theme Toggle Button */
+.themeToggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+body.dark .themeToggle {
+  background-color: #333;
+  color: white;
+}
+
+body:not(.dark) .themeToggle {
+  background-color: #f0f0f0;
+  color: black;
+}
+
+/* Responsive improvement */
+@media screen and (max-width:780px){
+  .themeToggle{
+    top: 10px;
+    right: 10px;
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}

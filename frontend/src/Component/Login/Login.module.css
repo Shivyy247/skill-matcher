@@ -69,3 +69,51 @@
     padding: 40px 25px;
   }
 }
+
+/* ================= DARK MODE ================= */
+
+/* ================= FULL DARK LOGIN ================= */
+
+body.dark .Login {
+  background: #0f172a !important;
+}
+
+body.dark .loginCard {
+  background: #1e293b !important;
+  box-shadow: none;
+}
+
+body.dark .loginCardTitle h1 {
+  color: #f8fafc !important;
+}
+
+body.dark .googleBtn {
+  background: #334155 !important;
+  border: 1px solid #475569 !important;
+  color: #f8fafc !important;
+}
+
+body.dark .googleBtn:hover {
+  background: #3b4252 !important;
+  border-color: #6366f1 !important;
+}
+
+
+/* ================= EXTRA RESPONSIVE POLISH ================= */
+
+@media screen and (max-width: 768px) {
+  .loginCardTitle h1 {
+    font-size: 26px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .loginCard {
+    padding: 30px 20px;
+  }
+
+  .googleBtn {
+    height: 48px;
+    font-size: 14px;
+  }
+}

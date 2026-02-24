@@ -54,3 +54,50 @@
   background: linear-gradient(135deg, #6366F1, #A78BFA);
   color: white;
 }
+
+/* ================= DARK MODE ================= */
+
+body.dark .sideBar {
+  background: #111827;
+}
+
+body.dark .sideBarOption {
+  color: #d1d5db;
+}
+
+body.dark .sideBarOption:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+body.dark .selectedOption {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media screen and (max-width: 780px) {
+  .sideBar {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  .sideBarIcon {
+    display: none;
+  }
+
+  .sideBarOptionBlock {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .sideBarOption {
+    padding: 10px;
+    font-size: 13px;
+  }
+}
