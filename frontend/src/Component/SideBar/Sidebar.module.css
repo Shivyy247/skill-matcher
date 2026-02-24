@@ -1,14 +1,14 @@
 .sideBar {
-  width: 240px;              /* FIXED WIDTH */
-  background: #1E1B4B;       /* deeper aesthetic blue */
+  width: 240px;
+  background: #1E1B4B;
   color: white;
-  height: 100vh;             /* NOT 200vh */
+  height: 100vh;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
 }
 
-/* TOP LOGO SECTION */
+/* ================= TOP LOGO SECTION ================= */
 
 .sideBarIcon {
   padding: 40px 20px;
@@ -25,7 +25,7 @@
   letter-spacing: 0.5px;
 }
 
-/* OPTIONS */
+/* ================= OPTIONS ================= */
 
 .sideBarOptionBlock {
   margin-top: 10px;
@@ -48,14 +48,36 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
-/* SELECTED */
+/* ================= SELECTED ================= */
 
 .selectedOption {
   background: linear-gradient(135deg, #6366F1, #A78BFA);
   color: white;
 }
 
-/* ================= DARK MODE ================= */
+/* ================= THEME TOGGLE ================= */
+
+.themeToggleWrapper {
+  margin-top: auto;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.themeToggle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.themeToggle:hover {
+  transform: scale(1.15);
+}
 
 /* ================= DARK MODE ================= */
 
@@ -74,7 +96,6 @@
 :global(body.dark) .selectedOption {
   background: linear-gradient(135deg, #4f46e5, #7c3aed);
 }
-
 
 /* ================= RESPONSIVE ================= */
 
@@ -96,10 +117,17 @@
     display: flex;
     width: 100%;
     justify-content: space-around;
+    margin-top: 0;
   }
 
   .sideBarOption {
     padding: 10px;
     font-size: 13px;
+  }
+
+  /* Keep theme toggle aligned nicely on mobile */
+  .themeToggleWrapper {
+    margin-top: 0;
+    padding: 0 10px;
   }
 }

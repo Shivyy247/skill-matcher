@@ -36,14 +36,20 @@ body.dark {
 .themeToggle {
   position: fixed;
   top: 20px;
-  right: 20px;
-  padding: 8px 14px;
+  right: 25px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
   border: none;
-  border-radius: 6px;
+  background: transparent;
+  font-size: 20px;
   cursor: pointer;
-  font-weight: 600;
   z-index: 1000;
-  transition: all 0.3s ease;
+  transition: transform 0.2s ease;
+}
+
+.themeToggle:hover {
+  transform: scale(1.15);
 }
 
 body.dark .themeToggle {

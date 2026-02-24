@@ -9,6 +9,9 @@ import { Route, Routes } from "react-router-dom";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
+  const toggleTheme = () => {
+    setDarkMode((prev) => !prev);
+  };
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
@@ -29,11 +32,7 @@ function App() {
 
   return (
     <div className="App">
-      <button className="themeToggle" onClick={() => setDarkMode(!darkMode)}>
-        {darkMode ? "☀ Light" : "🌙 Dark"}
-      </button>
-
-      <Sidebar />
+      <Sidebar darkMode={darkMode} toggleTheme={toggleTheme} />
 
       <Routes>
         <Route path="/" element={<Login />} />

@@ -245,7 +245,7 @@ input {
 }
 
 :global(body.dark) .alertInfo {
-  background: #1e293b;
+  background: #0f172a;
   border-left: 6px solid #818cf8;
 }
 
@@ -267,6 +267,10 @@ input {
   background: #334155;
   border: 1px solid #475569;
   color: #f1f5f9;
+}
+
+:global(body.dark) .alertInfo > div:first-child {
+  color: #f8fafc;
 }
 
 
