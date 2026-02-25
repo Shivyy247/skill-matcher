@@ -1,10 +1,10 @@
 .Dashboard {
   flex: 1;
-  height: 100vh;
-  overflow: auto;
+  min-height: 100vh;
   padding: 60px;
   display: flex;
   gap: 60px;
+  justify-content: center;
   background: #F8FAFC;
   box-sizing: border-box;
 }
@@ -12,7 +12,8 @@
 /* LEFT PANEL */
 
 .DashboardLeft {
-  width: 70%;
+  flex: 2;
+  max-width: 850px;
   padding: 55px;
   background: #ffffff;
   border-radius: 22px;
@@ -33,7 +34,7 @@
 /* MAIN HERO TITLE */
 
 .DashboardHeaderLargeTitle {
-  font-size: 56px;
+  font-size: clamp(32px, 5vw, 56px);
   font-weight: 900;
   line-height: 1.05;
   margin-bottom: 40px;
@@ -156,7 +157,8 @@ input {
 /* RIGHT PANEL */
 
 .DashboardRight {
-  width: 30%;
+  flex: 1;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   gap: 30px;
