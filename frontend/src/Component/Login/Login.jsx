@@ -6,11 +6,10 @@ import { auth, provider } from "../../utils/Firebase";
 import { signInWithPopup } from "firebase/auth";
 import { AuthContext } from "../../utils/HOC/AuthContext";
 import { useNavigate } from "react-router-dom";
-import axios from '../../utils/axios';
+import axios from "../../utils/axios";
 
 const Login = () => {
-  const { isLogin, setLogin, userInfo, setUserInfo } =
-    useContext(AuthContext);
+  const { setLogin, setUserInfo } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleLogin = async () => {
@@ -24,23 +23,20 @@ const Login = () => {
         photoUrl: user.photoURL,
       };
 
-      // ✅ WAIT properly for backend response
       const response = await axios.post("/api/user", userData);
-
       const backendUser = response.data.user;
 
-      // ✅ Set context
       setUserInfo(backendUser);
       setLogin(true);
 
-      // ✅ Save to localStorage
       localStorage.setItem("userInfo", JSON.stringify(backendUser));
       localStorage.setItem("isLogin", "true");
 
       navigate("/dashboard");
     } catch (error) {
-      console.log("LOGIN ERROR:", error);
-      alert("Login failed. Check console.");
+      if (error.code !== "auth/popup-closed-by-user") {
+        console.log("LOGIN ERROR:", error);
+      }
     }
   };
 
@@ -52,8 +48,8 @@ const Login = () => {
           <VpnKeyIcon />
         </div>
         <div className={styles.googleBtn} onClick={handleLogin}>
-          {" "}
-          <GoogleIcon sx={{ fontSize: 20, color: "red" }} /> Sign in with Google
+          <GoogleIcon sx={{ fontSize: 20, color: "red" }} />
+          Sign in with Google
         </div>
       </div>
     </div>
